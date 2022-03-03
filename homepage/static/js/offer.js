@@ -152,14 +152,14 @@ console.log(answerbtn);
 callbtn.onclick = async () => {
   console.log("Hello");
   
-  //localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+  localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
   remoteStream = new MediaStream();
 
   // Push tracks from local stream to peer connection
-  // localStream.getTracks().forEach((track) => {
-  //   pc.addTrack(track, localStream);
-  //   console.log(localStream)
-  // });
+  localStream.getTracks().forEach((track) => {
+    pc.addTrack(track, localStream);
+    console.log(localStream)
+  });
 
   // Pull tracks from remote stream, add to video stream
   pc.ontrack = (event) => {
@@ -169,7 +169,7 @@ callbtn.onclick = async () => {
     });
   };
 
-  // localvideo.srcObject = localStream;
+  localvideo.srcObject = localStream;
   remotevideo.srcObject = remoteStream;
 
   // callButton.disabled = false;
