@@ -157,10 +157,10 @@ callbtn.onclick = async () => {
 
   // Push tracks from local stream to peer connection
   localStream.getTracks().forEach((track) => {
+    
     pc.addTrack(track, localStream);
     console.log(localStream)
   });
-
   // Pull tracks from remote stream, add to video stream
   pc.ontrack = (event) => {
     console.log(pc);
@@ -198,10 +198,12 @@ pc.onicecandidate = (event) => {
 const offerDescription = await pc.createOffer();
 await pc.setLocalDescription(offerDescription);
 
+
 const offer = {
   sdp: offerDescription.sdp,
   type: offerDescription.type,
 };
+
 // console.log(offerDescription);
 await callDoc.set({ offer });
 // console.log(offerDescription);

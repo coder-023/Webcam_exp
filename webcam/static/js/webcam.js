@@ -55,14 +55,14 @@ const action = async() => {
     });
     
     // Pull tracks from remote stream, add to video stream
-    pc.ontrack = (event) => {
-        console.log(pc);
-        event.streams[0].getTracks().forEach((track) => {
-            remoteStream.addTrack(track);
-        });
-    }
+    // pc.ontrack = (event) => {
+    //     console.log(pc);
+    //     event.streams[0].getTracks().forEach((track) => {
+    //         remoteStream.addTrack(track);
+    //     });
+    // }
     localVideo.srcObject = localStream;
-    remoteVideo.srcObject = remoteStream;
+    // remoteVideo.srcObject = remoteStream;
     const callDoc = firestore.collection('calls').doc();
     const offerCandidates = callDoc.collection('offerCandidates');
     const answerCandidates = callDoc.collection('answerCandidates');

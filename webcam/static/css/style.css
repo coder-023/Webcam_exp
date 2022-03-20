@@ -10,14 +10,14 @@ body {
 }
 
 video {
-  width: 40vw;
-  height: 30vw;
-  margin: 2rem;
+  width: 20vw;
+  height: 15vw;
+  margin: 1rem;
   background: #2c3e50;
 }
 
-.videos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  /* .videos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
