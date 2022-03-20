@@ -157,10 +157,10 @@ callbtn.onclick = async () => {
 
   // Push tracks from local stream to peer connection
   localStream.getTracks().forEach((track) => {
+    
     pc.addTrack(track, localStream);
     console.log(localStream)
   });
-
   // Pull tracks from remote stream, add to video stream
   pc.ontrack = (event) => {
     console.log(pc);
@@ -169,7 +169,7 @@ callbtn.onclick = async () => {
     });
   };
 
-  localvideo.srcObject = localStream;
+  // localvideo.srcObject = localStream;
   remotevideo.srcObject = remoteStream;
 
   // callButton.disabled = false;
